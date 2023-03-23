@@ -1,0 +1,1 @@
+go test -bench=. > bench_time.txt

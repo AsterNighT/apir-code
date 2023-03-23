@@ -17,9 +17,11 @@ package merkle
 import (
 	"encoding/binary"
 	"errors"
-	"hash/adler32"
+	"hash/maphash"
 	"math"
 )
+
+var h maphash.Hash
 
 // MerkleTree is the structure for the Merkle tree.
 type MerkleTree struct {
@@ -28,13 +30,15 @@ type MerkleTree struct {
 	// data is the data from which the Merkle tree is created
 	// data are stored as a map from the actual data encoded to string to
 	// the index of the data in the tree
-	data map[uint32]uint32
+	data map[uint64]uint32
 	// nodes are the leaf and branch nodes of the Merkle tree
 	nodes [][]byte
 }
 
 func (t *MerkleTree) indexOf(input []byte) (uint32, error) {
-	if i, ok := t.data[adler32.Checksum(input)]; ok {
+	h.Reset()
+	h.Write(input)
+	if i, ok := t.data[h.Sum64()]; ok {
 		return i, nil
 	}
 	return 0, errors.New("data not found")
@@ -85,14 +89,16 @@ func NewUsing(data [][]byte, hash HashType) (*MerkleTree, error) {
 	branchesLen := int(math.Exp2(math.Ceil(math.Log2(float64(len(data))))))
 
 	// map with the original data to easily loop up the index
-	md := make(map[uint32]uint32, len(data))
+	md := make(map[uint64]uint32, len(data))
 	// We pad our data length up to the power of 2
 	nodes := make([][]byte, branchesLen+len(data)+(branchesLen-len(data)))
 	// Leaves
 	for i := range data {
 		ib := indexToBytes(i)
 		nodes[i+branchesLen] = hash.Hash(data[i], ib)
-		md[adler32.Checksum(data[i])] = uint32(i)
+		h.Reset()
+		h.Write(data[i])
+		md[h.Sum64()] = uint32(i)
 	}
 	for i := len(data) + branchesLen; i < len(nodes); i++ {
 		nodes[i] = make([]byte, hash.HashLength())

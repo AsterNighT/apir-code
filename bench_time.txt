@@ -1,0 +1,46 @@
+goos: linux
+goarch: amd64
+pkg: github.com/si-co/vpir-code
+cpu: 12th Gen Intel(R) Core(TM) i7-12700F
+BenchmarkMerkle/Merkle-2^14db-4b-20         	     313	   3775711 ns/op
+BenchmarkMerkle/Merkle-2^12db-6b-20         	    2498	    491472 ns/op
+BenchmarkMerkle/Merkle-2^10db-8b-20         	    7984	    136279 ns/op
+BenchmarkMerkle/Merkle-2^8db-10b-20         	   24396	     46122 ns/op
+BenchmarkMerkle/Merkle-2^16db-4b-20         	      70	  16344697 ns/op
+BenchmarkMerkle/Merkle-2^14db-6b-20         	     496	   2487499 ns/op
+BenchmarkMerkle/Merkle-2^12db-8b-20         	    2288	    503240 ns/op
+BenchmarkMerkle/Merkle-2^10db-10b-20        	    7190	    160621 ns/op
+BenchmarkMerkle/Merkle-2^18db-4b-20         	      16	  66041686 ns/op
+BenchmarkMerkle/Merkle-2^16db-6b-20         	     123	   9907168 ns/op
+BenchmarkMerkle/Merkle-2^14db-8b-20         	     429	   2595060 ns/op
+BenchmarkMerkle/Merkle-2^12db-10b-20        	    1845	    620034 ns/op
+BenchmarkMerkle/Merkle-2^20db-4b-20         	       4	 271985396 ns/op
+BenchmarkMerkle/Merkle-2^18db-6b-20         	      28	  41821644 ns/op
+BenchmarkMerkle/Merkle-2^16db-8b-20         	     100	  11245242 ns/op
+BenchmarkMerkle/Merkle-2^14db-10b-20        	     368	   3345418 ns/op
+BenchmarkMerkle/Merkle-2^22db-4b-20         	       1	1265964592 ns/op
+BenchmarkMerkle/Merkle-2^20db-6b-20         	       6	 171620166 ns/op
+BenchmarkMerkle/Merkle-2^18db-8b-20         	      26	  49276384 ns/op
+BenchmarkMerkle/Merkle-2^16db-10b-20        	      82	  14482104 ns/op
+BenchmarkPIRPoint/Normal-2^14db-4b-20       	   10000	    116620 ns/op
+BenchmarkPIRPoint/Normal-2^12db-6b-20       	    2798	    438976 ns/op
+BenchmarkPIRPoint/Normal-2^10db-8b-20       	   10000	    116904 ns/op
+BenchmarkPIRPoint/Normal-2^8db-10b-20       	   31442	     40149 ns/op
+BenchmarkPIRPoint/Normal-2^16db-4b-20       	    2787	    445693 ns/op
+BenchmarkPIRPoint/Normal-2^14db-6b-20       	     619	   1713809 ns/op
+BenchmarkPIRPoint/Normal-2^12db-8b-20       	    2755	    450025 ns/op
+BenchmarkPIRPoint/Normal-2^10db-10b-20      	    8727	    140178 ns/op
+BenchmarkPIRPoint/Normal-2^18db-4b-20       	     626	   1834262 ns/op
+BenchmarkPIRPoint/Normal-2^16db-6b-20       	     169	   7205593 ns/op
+BenchmarkPIRPoint/Normal-2^14db-8b-20       	     612	   1972277 ns/op
+BenchmarkPIRPoint/Normal-2^12db-10b-20      	    2080	    511490 ns/op
+BenchmarkPIRPoint/Normal-2^20db-4b-20       	     151	   8368053 ns/op
+BenchmarkPIRPoint/Normal-2^18db-6b-20       	      45	  27866020 ns/op
+BenchmarkPIRPoint/Normal-2^16db-8b-20       	     146	   8257093 ns/op
+BenchmarkPIRPoint/Normal-2^14db-10b-20      	     448	   2484553 ns/op
+BenchmarkPIRPoint/Normal-2^22db-4b-20       	      34	  32938929 ns/op
+BenchmarkPIRPoint/Normal-2^20db-6b-20       	       9	 111507053 ns/op
+BenchmarkPIRPoint/Normal-2^18db-8b-20       	      38	  32893352 ns/op
+BenchmarkPIRPoint/Normal-2^16db-10b-20      	     100	  10497275 ns/op
+PASS
+ok  	github.com/si-co/vpir-code	78.472s
