@@ -28,8 +28,8 @@ const (
 
 var randomDB *database.DB
 
-var DB_SIZE_EXPO = []uint{18, 20, 22, 24, 26}
-var ITEM_SIZE_EXPO = []uint{4, 6, 8, 10}
+var DB_SIZE_EXPO = []uint{18, 20, 22, 24, 26, 28, 30}
+var ITEM_SIZE_EXPO = []uint{4}
 
 var comm_file, _ = os.Create("./bench_comm.txt")
 var mem_file, _ = os.Create("./bench_mem.txt")
@@ -50,7 +50,7 @@ func BenchmarkMerkle(b *testing.B) {
 	}
 }
 
-func BenchmarkPIRPoint(b *testing.B) {
+func _BenchmarkPIRPoint(b *testing.B) {
 	for _, dbLenExpo := range DB_SIZE_EXPO {
 		for _, itemLenExpo := range ITEM_SIZE_EXPO {
 			runtime.GC()
